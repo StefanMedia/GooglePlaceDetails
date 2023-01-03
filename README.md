@@ -78,7 +78,7 @@ PLACE DETAILS ANSWER EXAMPLE
 ----------------------------
 
 The place details answer will be in JSON format and looks like this (depending of the fields you included in your request)
-
+```
 {
   "html_attributions": [],
   "result":
@@ -144,6 +144,7 @@ The place details answer will be in JSON format and looks like this (depending o
     },
   "status": "OK",
 }
+```
 
 
 USAGE IN FRONTEND EXAMPLE
@@ -152,7 +153,8 @@ USAGE IN FRONTEND EXAMPLE
 To display the reviews of a place you can do it like this (very basic markup!). I encourage every user to build their own
 markup of the reviews, fitting their design.
 
-<?
+```
+<?php
 
 // 1. Connect to module
 $module = $modules->get('GooglePlaceDetails');
@@ -177,6 +179,9 @@ $reviews = $details['result']['reviews'];
         <p><?=$review["text"]?></p>
     </div>
 <? } ?>
+
+?>
+```
 
 
 Here is a more advanced and nicer looking version (UIKit 3 Framework Markup is used)
