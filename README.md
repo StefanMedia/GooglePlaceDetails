@@ -59,12 +59,14 @@ If checked the place details can be previewed for debugging/development purpose 
 # Usage example
 
 1. Load the module in a page context:
-
+```php
 $module = $modules->get('GooglePlaceDetails');
+```
 
 2. Call a function to load data
-
+```php
 $module->getPlaceDetails();
+```
 
 This function fetches the data in realtime, on every page request and returns a php array containing the full response from the
 Google server.
