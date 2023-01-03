@@ -1,16 +1,14 @@
 Google Place Details for ProcessWire
 ====================================
 
-WHAT IT DOES
-------------
+# What it does
 
 Google Place Details offers the possibility to send requests to the Google Maps API to receive information
 about a certain place. A typical use case would be to display the reviews of a place on your website.
 But you can receive any other information that the API offers.
 
 
-BEFORE YOU START
-----------------
+# Before you start
 
 You need three things:
 
@@ -22,8 +20,8 @@ You can set up all of those by using Googles quick start widget here:
 
 https://developers.google.com/maps/third-party-platforms/quick-start-widget-users
 
-HOW TO INSTALL
---------------
+
+# How to install
 
 1. Copy this directory to /site/modules
 
@@ -34,8 +32,7 @@ HOW TO INSTALL
 4. Fill out the API Key and Place ID fields in the module settings and you are ready to go.
 
 
-MODULE SETTINGS FIELD DESCRIPTIONS
-----------------------------------
+# Module settings and field descriptions
 
 ### API Key
 
@@ -58,8 +55,8 @@ Chose your sorting criteria. "Most relevant" is used by default.
 
 If checked the place details can be previewed for debugging/development purpose on module page submit.
 
-USAGE EXAMPLE
--------------
+
+# Usage example
 
 1. Load the module in a page context:
 
@@ -74,8 +71,8 @@ Google server.
 
 See the frontend example at the end of this document to see how to extract data from the array in a working example.
 
-PLACE DETAILS ANSWER EXAMPLE
-----------------------------
+
+# Place details answer example
 
 The place details answer will be in JSON format and looks like this (depending of the fields you included in your request)
 ```
@@ -146,9 +143,7 @@ The place details answer will be in JSON format and looks like this (depending o
 }
 ```
 
-
-USAGE IN FRONTEND EXAMPLE
--------------------------
+# Usage in frontend example
 
 To display the reviews of a place you can do it like this (very basic markup!). I encourage every user to build their own
 markup of the reviews, fitting their design.
