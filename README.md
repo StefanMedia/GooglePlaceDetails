@@ -75,7 +75,7 @@ See the frontend example at the end of this document to see how to extract data 
 # Place details answer example
 
 The place details answer will be in JSON format and looks like this (depending of the fields you included in your request)
-```
+```json
 {
   "html_attributions": [],
   "result":
@@ -148,7 +148,7 @@ The place details answer will be in JSON format and looks like this (depending o
 To display the reviews of a place you can do it like this (very basic markup!). I encourage every user to build their own
 markup of the reviews, fitting their design.
 
-```
+```php
 <?php
 
 // 1. Connect to module
@@ -181,7 +181,7 @@ $reviews = $details['result']['reviews'];
 
 Here is a more advanced and nicer looking version (UIKit 3 Framework Markup is used)
 
-```
+```php
 <div class="uk-container">
     <div uk-slider>
         <div class="uk-position-relative">
@@ -223,7 +223,7 @@ Here is a more advanced and nicer looking version (UIKit 3 Framework Markup is u
 If you are already using UIKit 3 and just want to get a quick result I put the code example above in a function that can can be called
 like this:
 
-```
+```php
 <?
 $module = $modules->get('GooglePlaceDetails');
 echo $module->getUIKitMarkupExample();
