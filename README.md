@@ -37,24 +37,24 @@ HOW TO INSTALL
 MODULE SETTINGS FIELD DESCRIPTIONS
 ----------------------------------
 
-- API Key -
+### API Key
 
 This field is required and must contain your generated Google API key.
 
-- Place ID -
+### Place ID
 
 This field is required. You can put the ID of any place into this field.
 
-- Fields to include in request -
+### Fields to include in request
 
 Specify a comma-separated list of place data types to return. Leave empty to load all default fields.
 For an overview of the available fields see: https://developers.google.com/maps/documentation/places/web-service/details
 
-- Review Sorting -
+### Review Sorting
 
 Chose your sorting criteria. "Most relevant" is used by default.
 
-- Preview Place Details -
+### Preview Place Details
 
 If checked the place details can be previewed for debugging/development purpose on module page submit.
 
@@ -186,6 +186,7 @@ $reviews = $details['result']['reviews'];
 
 Here is a more advanced and nicer looking version (UIKit 3 Framework Markup is used)
 
+```
 <div class="uk-container">
     <div uk-slider>
         <div class="uk-position-relative">
@@ -222,13 +223,16 @@ Here is a more advanced and nicer looking version (UIKit 3 Framework Markup is u
         </div>
     </div>
 </div>
+```
 
 If you are already using UIKit 3 and just want to get a quick result I put the code example above in a function that can can be called
 like this:
 
+```
 <?
 $module = $modules->get('GooglePlaceDetails');
 echo $module->getUIKitMarkupExample();
 ?>
+```
 
 The template file which is used for the markup lies inside the module directory. Adjust it to your needs.
