@@ -1,6 +1,3 @@
-# GooglePlaceDetails
-Display Google place details like reviews and other information.
-
 Google Place Details for ProcessWire
 ====================================
 
