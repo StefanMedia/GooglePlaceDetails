@@ -1,6 +1,8 @@
 Google Place Details for ProcessWire
 ====================================
 
+![Bildschirmfoto 2023-01-03 um 12 19 44](https://user-images.githubusercontent.com/121567701/210347860-fbc70664-c231-4c44-b2f5-938b767e07e2.png)
+
 # What it does
 
 Google Place Details offers the possibility to send requests to the Google Maps API to receive information
