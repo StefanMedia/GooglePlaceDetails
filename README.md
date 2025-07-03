@@ -213,22 +213,37 @@ $module = $modules->get('GooglePlaceDetails');
 $details = $module->getPlaceDetails();
 
 // 3. Extract the data you want to iterate over
-$reviews = $details['result']['reviews'];
+$reviews = $details['reviews'];
 
 // For debug purpose dump the array to inspect the data
 // TRACY DEBUGGER MODULE REQUIRED
 // dump($reviews);
 
-<? foreach ($reviews as $review) { ?>
+<?php foreach ($reviews as $review) { ?>
     <div>
-        <img src="<?=$review["profile_photo_url"]?>"/>
-        <h4><?=$review["author_name"]?></h4>
-        <? for ($i = 1; $i <= ($review['rating']); $i++) { ?>
+        <img src="<?=$review["authorAttribution"]["photoUri"]?>"/>
+        <h4><?=$review["authorAttribution"]["displayName"]?></h4>
+        <p>
+            <?php
+
+            $isoString = $review["publishTime"];
+
+            $date = new DateTime($isoString);
+
+            $date->setTimezone(new DateTimeZone('Europe/Berlin'));
+
+            $formattedDate = $date->format('d.m.Y');
+
+            echo $formattedDate;
+
+            ?>
+        </p>
+        <?php for ($i = 1; $i <= ($review['rating']); $i++) { ?>
             &#9733;
-        <? } ?>
-        <p><?=$review["text"]?></p>
+        <?php } ?>
+        <p><?=$review["originalText"]["text"]?></p>
     </div>
-<? } ?>
+<?php } ?>
 
 ?>
 ```
