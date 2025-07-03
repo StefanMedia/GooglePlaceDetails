@@ -20,8 +20,8 @@ class GooglePlaceDetails extends WireData implements Module, ConfigurableModule 
         return [
             'title' => 'Google Place Details',
             'summary' => 'Display Google place details like reviews and other information.',
-            'author' => 'Stefan Thumann',
-            'version' => '1.0.0',
+            'author' => 'Stefan Müller',
+            'version' => '1.0.1',
             'icon' => 'google'
         ];
     }
@@ -30,7 +30,6 @@ class GooglePlaceDetails extends WireData implements Module, ConfigurableModule 
         'apiKey' => '',
         'placeId' => '',
         'dataFields' => 'name,reviews',
-        'reviewSort' => 'most_relevant',
         'previewDetails' => '',
         'detailsData' => ''
     );
@@ -80,19 +79,6 @@ class GooglePlaceDetails extends WireData implements Module, ConfigurableModule 
         $f->attr('value', $data['dataFields']);
         $f->description = 'Specify a comma-separated list of place data types to return. Leave empty to load all default fields.';
         $f->notes = 'For an overview of the available fields see: [https://developers.google.com/maps/documentation/places/web-service/details](https://developers.google.com/maps/documentation/places/web-service/details)';
-        $inputfields->add($f);
-
-        // Sorting Options
-        $f = wire('modules')->get('InputfieldSelect');
-        $f->attr('name', 'reviewSort');
-        $f->label = 'Review Sorting';
-        $f->icon = 'filter';
-        $f->options = array(
-            'most_relevant' => 'Most relevant',
-            'newest' => 'newest'
-        );
-        $f->attr('value', $data['reviewSort']);
-        $f->notes = 'Info: The amount of reviews is limited to 5 by the API.';
         $inputfields->add($f);
 
         // Fetch Place Details Checkbox
@@ -160,9 +146,8 @@ class GooglePlaceDetails extends WireData implements Module, ConfigurableModule 
         $apiKey = $this->apiKey;
         $placeId = $this->placeId;
         $dataFields = $this->dataFields;
-        $reviewSort = $this->reviewSort;
 
-        $apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?fields=$dataFields&reviews_sort=$reviewSort&reviews_no_translations=true&place_id=$placeId&key=$apiKey";
+        $apiUrl = "https://places.googleapis.com/v1/places/$placeId?fields=$dataFields&key=$apiKey";
         $http = new WireHttp();
         $responseJson = $http->get($apiUrl);
 
